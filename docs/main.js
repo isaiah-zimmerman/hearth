@@ -22,6 +22,8 @@ educationMap["20-29"] = 2.5
 educationMap["30-39"] = 3.5
 educationMap["40+"] = 5
 
+let insightsActive = new Set()
+
 document.addEventListener("DOMContentLoaded", function(){
     // document.getElementById("test").addEventListener("click", test)
     document.getElementById('xlsxFileInput').addEventListener('change', function(e) {
@@ -349,10 +351,19 @@ function printInsightWithTitle(title, notes){
     const content = notesContainer;
 
     coll.addEventListener("click", function() {
-        console.log('clicked')
+        // console.log('clicked')
         this.classList.toggle("active");
-        content.style.display = content.style.display === "block" ? "none" : "block";
+        if(insightsActive.has(title)){
+            insightsActive.delete(title)
+        }else{
+            insightsActive.add(title)
+        }
+
+        content.style.display = insightsActive.has(title) ? "block" : "none";
     });
+
+    content.style.display = insightsActive.has(title) ? "block" : "none";
+
 
     // console.log(notes)
 

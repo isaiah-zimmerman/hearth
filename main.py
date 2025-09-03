@@ -81,11 +81,11 @@ def add_random_person(df, n=1):
     c = list(df.columns)
 
     # import names    
-    with open("names/first-names.txt", "r") as file:
+    with open("private/names/first-names.txt", "r") as file:
         data1 = file.read().split("\n")  # Split by newline
     fn_df = pd.DataFrame(data1, columns=["Values"])  # Create DataFrame
 
-    with open("names/last-names.txt", "r") as file:
+    with open("private/names/last-names.txt", "r") as file:
         data2 = file.read().split("\n")  # Split by newline
     ln_df = pd.DataFrame(data2, columns=["Values"])  # Create DataFrame
 
@@ -134,6 +134,14 @@ def add_random_person(df, n=1):
 
             child_has_healthcare = random.random() < 0.9
             subAdd[c.index("Child:")] = ["No", "Yes"][child_has_healthcare]
+
+            subBenefits = []
+
+            for benefit in ['WIC', 'Food Stamps', 'ELRC', 'Medical Assistance']:
+                if(random.random() > 0.5):
+                    subBenefits.append(benefit)
+
+            subAdd[c.index("What maintain or Increase Non-Cash Benefits:")] = ", ".join(subBenefits)
 
             if(i == num_visits - 1):
                 exit_to_permanent_housing = random.random() < 0.80
