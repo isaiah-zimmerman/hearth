@@ -1,0 +1,39 @@
+.insight_title{
+    cursor: pointer;
+}
+
+#chart_display{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    align-items: center;
+}
+
+#chart_container{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#myLineChart{
+    background-color: white;
+    width: 70vw;
+}
+
+#show_time_stayed_histogram:hover{
+    text-decoration: underline;
+}
+
+.clickable_name:hover{
+    text-decoration: underline;
+}
+
+#filter_by_date_div{
+    display: none;
+}

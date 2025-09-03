@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hearth</title>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Hearth Data</h1>
+    <div id="checkbox_only_div">
+      <input type="checkbox" name="checkouts_only" id="checkouts_only"><label for="checkouts_only">checkouts only</label>
+      <div id="filter_by_date_div">
+        <input type="checkbox" id="filter_by_date" name="filter_by_date"><label for="filter_by_date">checkouts in date range</label>
+        <div id="filter_date_range">
+          <select id="start_month" name="start_month">
+            <option value=0>January</option>
+            <option value=1>February</option>
+            <option value=2>March</option>
+            <option value=3>April</option>
+            <option value=4>May</option>
+            <option value=5>June</option>
+            <option value=6>July</option>
+            <option value=7>August</option>
+            <option value=8>September</option>
+            <option value=9>October</option>
+            <option value=10>November</option>
+            <option value=11>December</option>
+          </select>
+          <input type="number" min="2000" step="1" id="start_year">
+          <span>to</span>
+          <select id="end_month" name="end_month">
+            <option value=0>January</option>
+            <option value=1>February</option>
+            <option value=2>March</option>
+            <option value=3>April</option>
+            <option value=4>May</option>
+            <option value=5>June</option>
+            <option value=6>July</option>
+            <option value=7>August</option>
+            <option value=8>September</option>
+            <option value=9>October</option>
+            <option value=10>November</option>
+            <option value=11>December</option>
+          </select>
+          <input type="number" min="2000" step="1" id="end_year">
+        </div>
+      </div>
+    </div>
+    <div>
+      <input type="number" placeholder="15" name="units_available"> <label for="units_available">units available</label>
+    </div>
+    <div>
+      Search: <input type="text" id="search_bar"><button id="search_button">Search</button>
+    </div>
+    <!-- <canvas id="histogramChart"></canvas> -->
+    <div id="insights"></div>
+    <input type="file" id="xlsxFileInput" accept=".xlsx,.xls" />
+    <div id="chart_display" onclick="hideChart()">
+      <div id="chart_container">
+        <canvas id="myLineChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
